@@ -1,5 +1,9 @@
-body, .bg-custom{
-    background: #d6feff;
+body{
+    background: linear-gradient(210deg, #d6feff, #ffa38c);
+}
+
+.bg-custom{
+    background: linear-gradient(180deg, #fbfbfb00, #ffa38c);
 }
 
 .text-main{
@@ -50,19 +54,19 @@ body, .bg-custom{
 }
 
 .custom-button{
-    background-color: #ffa38c;
-    border-color: #ffa38c;
+    background-color: #d6feff;
+    border-color: #d6feff;
     border-radius: 35px;
     font-size: 25px;
-    color: white;
+    color: black;
     padding: 8px 100px;
 }
 
 .custom-button:hover{
-    background-color: #ff7254;
-    border-color: #ff7254;
+    background-color: #9efcfd;
+    border-color: #9efcfd;
     border-radius: 35px;
     font-size: 25px;
-    color: white;
+    color: black;
     padding: 8px 100px;
 }
