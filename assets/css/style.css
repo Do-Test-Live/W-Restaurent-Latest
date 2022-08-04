@@ -1,7 +1,3 @@
-.custom-height{
-    height: 550px;
-}
-
 .product-image{
     height: 120px;
     width: 120px;
@@ -14,14 +10,18 @@
 
 .custom-button{
     border-radius: 25px;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 .custom-button:hover{
     background-color: #0099b6;
     border-color: #0099b6;
     border-radius: 25px;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
+    padding-left: 35px;
+    padding-right: 35px;
 }
