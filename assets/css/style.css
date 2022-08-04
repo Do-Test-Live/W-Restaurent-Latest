@@ -4,6 +4,31 @@
     border: 1px solid black;
 }
 
+.img-text{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-link{
+    text-decoration: none;
+    color: #e7e7e7;
+}
+
+.product-link:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .card{
     border-radius: 1.25em;
 }
