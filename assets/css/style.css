@@ -17,17 +17,19 @@
 }
 
 .custom-button{
+    background-color: #ffa38c;
+    border-color: #ffa38c;
     border-radius: 35px;
     font-size: 25px;
     color: white;
-    padding: 15px 100px;
+    padding: 8px 100px;
 }
 
 .custom-button:hover{
-    background-color: #0099b6;
-    border-color: #0099b6;
+    background-color: #ff7254;
+    border-color: #ff7254;
     border-radius: 35px;
     font-size: 25px;
     color: white;
-    padding: 15px 100px;
+    padding: 8px 100px;
 }
