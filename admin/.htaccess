@@ -1,0 +1,24 @@
+RewriteEngine on
+
+RewriteRule ^Login index.php [L]
+
+RewriteRule ^Logout logout.php [L]
+
+RewriteRule ^Dashboard dashboard.php [L]
+
+RewriteRule ^Add-Restaurant add-restaurant.php [L]
+
+RewriteRule ^Restaurants restaurants.php [L]
+
+RewriteRule ^Add-Product add-product.php [L]
+
+RewriteRule ^Products products.php [L]
+
+RewriteRule ^Pending-Orders pending-orders.php [L]
+
+RewriteRule ^Orders orders.php [L]
+
+RewriteRule ^Add-Admin add-admin.php [L]
+
+RewriteRule ^Admins admins.php [L]
+

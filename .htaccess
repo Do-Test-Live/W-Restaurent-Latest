@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteRule ^Home index.php [L]
+
+RewriteRule ^Product product.php [L]
+
+RewriteRule ^Product-Detail product-details.php [L]
+
+

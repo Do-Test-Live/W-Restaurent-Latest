@@ -45,7 +45,7 @@
     <div class="row mt-3">
         <div class="col-12">
             <div class="card">
-                <a href="product-details.html" class="product-link">
+                <a href="product-details.php" class="product-link">
                     <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
                 </a>
                 <div class="card-body">
@@ -64,7 +64,7 @@
     <div class="row mt-3">
         <div class="col-12">
             <div class="card">
-                <a href="product-details.html" class="product-link">
+                <a href="product-details.php" class="product-link">
                     <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
                 </a>
                 <div class="card-body">
@@ -83,7 +83,7 @@
     <div class="row mt-3">
         <div class="col-12">
             <div class="card">
-                <a href="product-details.html" class="product-link">
+                <a href="product-details.php" class="product-link">
                     <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
                 </a>
                 <div class="card-body">
@@ -102,7 +102,7 @@
     <div class="row mt-3 mb-5">
         <div class="col-12">
             <div class="card">
-                <a href="product-details.html" class="product-link">
+                <a href="product-details.php" class="product-link">
                     <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
                 </a>
                 <div class="card-body">

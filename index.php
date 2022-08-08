@@ -29,7 +29,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -39,7 +39,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -47,35 +47,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
     </div>
@@ -85,7 +57,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -95,7 +67,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -103,35 +75,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
     </div>
@@ -141,7 +85,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -151,7 +95,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -159,7 +103,63 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+    </div>
+    <div class="row product-margin">
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+    </div>
+    <div class="row product-margin">
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+    </div>
+    <div class="row product-margin">
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+    </div>
+    <div class="row product-margin">
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
+            </div>
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center">
+        </div>
+        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
+            <div class="centered">
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
     </div>
@@ -169,7 +169,7 @@
         <div class="col-4 d-flex justify-content-center justify-content-center img-text">
             <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
             <div class="centered">
-                <a href="product.html" class="product-link">Demo</a>
+                <a href="product.php" class="product-link">Demo</a>
             </div>
         </div>
         <div class="col-4 d-flex justify-content-center justify-content-center">
