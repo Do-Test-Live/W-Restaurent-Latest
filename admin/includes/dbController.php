@@ -3,7 +3,7 @@ class DBController {
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $database = "restaurants";
+    private $database = "restaurents";
     private $from_email='noreply@skhalalfood.com';
     private $notification_email='frogbidofficial@gmail.com';
     private $conn;
