@@ -1,4 +1,4 @@
-<?php require_once ('includes/session.php')?>
+<?php require_once('includes/session.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
     <title>Add Product - Restaurants</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <?php require_once ('includes/css.php')?>
+    <?php require_once('includes/css.php') ?>
     <style>
         .bootstrap-tagsinput {
             width: 100% !important;
@@ -20,7 +20,7 @@
 <!--*******************
     Preloader start
 ********************-->
-<?php require_once ('includes/preloader.php')?>
+<?php require_once('includes/preloader.php') ?>
 <!--*******************
     Preloader end
 ********************-->
@@ -33,7 +33,7 @@
     <!--**********************************
         Nav header start
     ***********************************-->
-    <?php require_once ('includes/logoDetails.php')?>
+    <?php require_once('includes/logoDetails.php') ?>
     <!--**********************************
         Nav header end
     ***********************************-->
@@ -41,7 +41,7 @@
     <!--**********************************
         Header start
     ***********************************-->
-    <?php require_once ('includes/header.php')?>
+    <?php require_once('includes/header.php') ?>
     <!--**********************************
         Header end ti-comment-alt
     ***********************************-->
@@ -49,7 +49,7 @@
     <!--**********************************
         Sidebar start
     ***********************************-->
-    <?php require_once ('includes/sidebar.php')?>
+    <?php require_once('includes/sidebar.php') ?>
     <!--**********************************
         Sidebar end
     ***********************************-->
@@ -75,11 +75,19 @@
                                                 <div class="form-group col-md-12">
                                                     <label>Restaurant Name</label>
                                                     <div class="dropdown bootstrap-select form-control default-select">
-                                                        <select id="inputState" class="form-control default-select" name="restaurant-name" required>
+                                                        <select id="inputState" class="form-control default-select"
+                                                                name="restaurant-id" required>
                                                             <option selected>Choose...</option>
-                                                            <option>Option 1</option>
-                                                            <option>Option 2</option>
-                                                            <option>Option 3</option>
+                                                            <?php
+                                                            $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant order by id desc");
+                                                            $row_count = $db_handle->numRows("SELECT * FROM restaurant order by id desc");
+
+                                                            for ($i = 0; $i < $row_count; $i++) {
+                                                                ?>
+                                                                <option value="<?php echo $restaurant_data[$i]["id"]; ?>"><?php echo $restaurant_data[$i]["name"]; ?></option>
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -87,14 +95,17 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Name</label>
-                                                    <input type="text" class="form-control" name="name" placeholder="Product Name" required>
+                                                    <input type="text" class="form-control" name="name"
+                                                           placeholder="Product Name" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Availability Time</label>
                                                     <div>
-                                                        <input type="text" class="form-control" name="time" value="10:00 AM, 3:00 PM" data-role="tagsinput" placeholder="10:00 AM" required>
+                                                        <input type="text" class="form-control" name="time"
+                                                               value="10:00 AM, 3:00 PM" data-role="tagsinput"
+                                                               placeholder="10:00 AM" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,7 +122,8 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Description</label>
-                                                    <textarea class="form-control" placeholder="Product Description" name="description" required rows="5"></textarea>
+                                                    <textarea class="form-control" placeholder="Product Description"
+                                                              name="description" required rows="5"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -123,7 +135,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" name="product-add" class="btn btn-primary">Submit</button>
+                                            <button type="submit" name="product-add" class="btn btn-primary">Submit
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -141,7 +154,7 @@
     <!--**********************************
         Footer start
     ***********************************-->
-    <?php require_once ('includes/footer.php')?>
+    <?php require_once('includes/footer.php') ?>
     <!--**********************************
         Footer end
     ***********************************-->
@@ -154,6 +167,6 @@
 <!--**********************************
     Scripts
 ***********************************-->
-<?php require_once ('includes/js.php')?>
+<?php require_once('includes/js.php') ?>
 </body>
 </html>

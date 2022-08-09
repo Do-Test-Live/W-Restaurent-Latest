@@ -61,30 +61,59 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Basic Datatable</h4>
+                                    <h4 class="card-title">Product List</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table id="example" class="display min-w850">
                                             <thead>
                                             <tr>
+                                                <th>SL</th>
                                                 <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Image</th>
+                                                <th>Updated AT</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
+                                            <?php
+                                            $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant order by id desc");
+                                            $row_count = $db_handle->numRows("SELECT * FROM restaurant order by id desc");
+
+                                            for ($i = 0; $i < $row_count; $i++) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $i+1; ?></td>
+                                                    <td><?php echo $restaurant_data[$i]["name"]; ?></td>
+                                                    <td><a href="../<?php echo $restaurant_data[$i]["image"]; ?>" target="_blank">restaurant_image</a></td>
+                                                    <td><?php echo $restaurant_data[$i]["updated_at"]; ?></td>
+                                                    <td>
+                                                        <div class="dropdown ml-auto text-right">
+                                                            <div class="btn-link" data-toggle="dropdown">
+                                                                <svg width="24px" height="24px" viewBox="0 0 24 24"
+                                                                     version="1.1">
+                                                                    <g stroke="none" stroke-width="1" fill="none"
+                                                                       fill-rule="evenodd">
+                                                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        <circle fill="#000000" cx="5" cy="12" r="2">
+                                                                        </circle>
+                                                                        <circle fill="#000000" cx="12" cy="12"
+                                                                                r="2"></circle>
+                                                                        <circle fill="#000000" cx="19" cy="12"
+                                                                                r="2"></circle>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
