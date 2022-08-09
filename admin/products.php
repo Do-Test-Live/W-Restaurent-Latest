@@ -70,23 +70,80 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Name</th>
-                                                <th>Image</th>
+                                                <th>Restaurant</th>
+                                                <th>Time</th>
+                                                <th>Price</th>
+                                                <th>Description</th>
+                                                <th>Availability</th>
                                                 <th>Updated AT</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant order by id desc");
-                                            $row_count = $db_handle->numRows("SELECT * FROM restaurant order by id desc");
+                                            $product_data = $db_handle->runQuery("SELECT * FROM product as p, restaurant as r where r.id=p.restaurant_id order by p.id desc");
+                                            $row_count = $db_handle->numRows("SELECT * FROM product as p, restaurant as r where r.id=p.restaurant_id order by p.id desc");
 
                                             for ($i = 0; $i < $row_count; $i++) {
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $i+1; ?></td>
-                                                    <td><?php echo $restaurant_data[$i]["name"]; ?></td>
-                                                    <td><a href="../<?php echo $restaurant_data[$i]["image"]; ?>" target="_blank">restaurant_image</a></td>
-                                                    <td><?php echo $restaurant_data[$i]["updated_at"]; ?></td>
+                                                    <td><?php echo $i + 1; ?></td>
+                                                    <td>
+                                                        <?php echo $product_data[$i]["p_name"]; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $product_data[$i]["name"]; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php $sb = explode(',', $product_data[$i]["time"]);
+                                                        foreach ($sb as $bb) {
+                                                            if ($bb == '') {
+                                                                echo '';
+                                                            } else {
+                                                                echo $bb.'<br/>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php $sb = explode(',', $product_data[$i]["price"]);
+                                                        foreach ($sb as $bb) {
+                                                            if ($bb == '') {
+                                                                echo '';
+                                                            } else {
+                                                                echo $bb.'<br/>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="../<?php echo $product_data[$i]["image"]; ?>"
+                                                           target="_blank">
+                                                            product_image
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        if ($product_data[$i]["status"] == 0) {
+                                                            ?>
+                                                            <span class="badge light badge-danger">Not Available</span>
+                                                            <?php
+                                                        } else if ($product_data[$i]["status"] == 1) {
+                                                            ?>
+                                                            <span class="badge light badge-success">Available</span>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+
+                                                        $datetime = new DateTime($product_data[$i]["updated_at"]);
+                                                        $la_time = new DateTimeZone('America/New_York');
+                                                        $datetime->setTimezone($la_time);
+
+                                                        echo $datetime->format('d/m/Y h:i A'); ?>
+                                                    </td>
                                                     <td>
                                                         <div class="dropdown ml-auto text-right">
                                                             <div class="btn-link" data-toggle="dropdown">

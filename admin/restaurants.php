@@ -86,7 +86,15 @@
                                                 <td><?php echo $i+1; ?></td>
                                                 <td><?php echo $restaurant_data[$i]["name"]; ?></td>
                                                 <td><a href="../<?php echo $restaurant_data[$i]["image"]; ?>" target="_blank">restaurant_image</a></td>
-                                                <td><?php echo $restaurant_data[$i]["updated_at"]; ?></td>
+                                                <td>
+                                                    <?php
+
+                                                    $datetime = new DateTime($restaurant_data[$i]["updated_at"]);
+                                                    $la_time = new DateTimeZone('America/New_York');
+                                                    $datetime->setTimezone($la_time);
+
+                                                    echo $datetime->format('d/m/Y h:i A'); ?>
+                                                </td>
                                                 <td>
                                                     <div class="dropdown ml-auto text-right">
                                                         <div class="btn-link" data-toggle="dropdown">

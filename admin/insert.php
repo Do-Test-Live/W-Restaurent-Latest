@@ -80,7 +80,7 @@ if (isset($_POST['product-add'])) {
         }
     }
 
-    $insert = $db_handle->insertQuery("INSERT INTO `product`( `restaurant_id`, `name`, `code`, `time`, `price`, `description`, `image`) VALUES ('$restaurant_id','$name','$code','$time','$price','$description','$image')");
+    $insert = $db_handle->insertQuery("INSERT INTO `product`( `restaurant_id`, `p_name`, `code`, `time`, `price`, `description`, `image`) VALUES ('$restaurant_id','$name','$code','$time','$price','$description','$image')");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
