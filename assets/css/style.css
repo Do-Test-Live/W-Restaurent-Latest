@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'sf-pro-regular';
+    src: url('../fonts/sf-pro-text_regular.woff2');
+}
+
+@font-face {
+    font-family: 'sf-pro-semibold';
+    src: url('../fonts/sf-pro-text_semibold.woff2');
+}
+
 body{
     background: linear-gradient(210deg, #d6feff, #ffa38c);
 }
@@ -6,7 +16,16 @@ body{
     background: linear-gradient(180deg, #fbfbfb00, #ffa38c);
 }
 
+.nav-link,.card-text{
+    font-family: 'sf-pro-regular';
+}
+
+.card-title{
+    font-family: 'sf-pro-semibold';
+}
+
 .text-main{
+    font-family: 'sf-pro-regular';
     color: #ffa38c;
 }
 
@@ -23,6 +42,7 @@ body{
 }
 
 .centered {
+    font-family: 'sf-pro-semibold';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -54,6 +74,7 @@ body{
 }
 
 .custom-button{
+    font-family: 'sf-pro-semibold';
     background-color: #d6feff;
     border-color: #d6feff;
     border-radius: 35px;
@@ -63,6 +84,7 @@ body{
 }
 
 .custom-button:hover{
+    font-family: 'sf-pro-semibold';
     background-color: #9efcfd;
     border-color: #9efcfd;
     border-radius: 35px;
