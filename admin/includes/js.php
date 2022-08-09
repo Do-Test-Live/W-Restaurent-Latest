@@ -6,3 +6,8 @@
 <script src="js/plugins-init/toastr-init.js" type="text/javascript"></script>
 
 <script src="js/deznav-init.js"></script>
+
+<!-- Datatable -->
+<script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="js/plugins-init/datatables.init.js"></script>
+
