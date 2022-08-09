@@ -9,6 +9,11 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <?php require_once ('includes/css.php')?>
+    <style>
+        .bootstrap-tagsinput {
+            width: 100% !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -87,8 +92,20 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
+                                                    <label>Availability Time</label>
+                                                    <div>
+                                                        <input type="text" class="form-control" name="time" value="10:00 AM, 3:00 PM" data-role="tagsinput" placeholder="10:00 AM" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
                                                     <label>Product Price</label>
-                                                    <input type="text" class="form-control" name="price" placeholder="Product Price" required>
+                                                    <div>
+                                                        <input type="text" class="form-control" name="price"
+                                                               placeholder="5.99"
+                                                               value="7.99, 8.55" data-role="tagsinput" required/>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
