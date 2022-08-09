@@ -22,3 +22,7 @@ RewriteRule ^Add-Admin add-admin.php [L]
 
 RewriteRule ^Admins admins.php [L]
 
+RewriteRule ^Insert insert.php [L]
+
+RewriteRule ^Update update.php [L]
+

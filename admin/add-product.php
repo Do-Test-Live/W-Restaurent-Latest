@@ -65,12 +65,12 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form>
+                                        <form action="Insert" method="post" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Restaurant Name</label>
                                                     <div class="dropdown bootstrap-select form-control default-select">
-                                                        <select id="inputState" class="form-control default-select" required>
+                                                        <select id="inputState" class="form-control default-select" name="restaurant-name" required>
                                                             <option selected>Choose...</option>
                                                             <option>Option 1</option>
                                                             <option>Option 2</option>
@@ -82,31 +82,31 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Name</label>
-                                                    <input type="text" class="form-control" placeholder="Product Name" required>
+                                                    <input type="text" class="form-control" name="name" placeholder="Product Name" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Price</label>
-                                                    <input type="text" class="form-control" placeholder="Product Price" required>
+                                                    <input type="text" class="form-control" name="price" placeholder="Product Price" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Description</label>
-                                                    <textarea class="form-control" placeholder="Product Description" required rows="5"></textarea>
+                                                    <textarea class="form-control" placeholder="Product Description" name="description" required rows="5"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Product Image</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
+                                                        <input type="file" class="custom-file-input" name="image">
                                                         <label class="custom-file-label">Choose file</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" name="product-add" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
                                 </div>

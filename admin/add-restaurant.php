@@ -65,23 +65,23 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form>
+                                        <form action="Insert" method="post" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Restaurant Name</label>
-                                                    <input type="text" class="form-control" placeholder="Restaurant Name" required>
+                                                    <input type="text" class="form-control" name="name" placeholder="Restaurant Name" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Restaurant Image</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
+                                                        <input type="file" class="custom-file-input" name="image"/>
                                                         <label class="custom-file-label">Choose file</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" name="restaurant-add" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
                                 </div>
