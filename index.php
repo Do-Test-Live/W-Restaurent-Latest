@@ -178,22 +178,24 @@
 </section>
 <!-- Product Section End -->
 
-<footer class="container fixed-bottom pb-3 pt-3 bg-custom">
-    <div class="d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-info btn-lg custom-button">Booking</button>
-    </div>
-    <div class="row mt-4">
-        <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fa-brands fa-bandcamp"></i>
+<footer class="fixed-bottom pb-3 pt-3 bg-custom">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="button" class="btn btn-info btn-lg custom-button">Booking</button>
         </div>
-        <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-bell"></i>
-        </div>
-        <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-award"></i>
-        </div>
-        <div class="col-3 d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-user"></i>
+        <div class="row mt-4">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+                <i class="fa-brands fa-bandcamp"></i>
+            </div>
+            <div class="col-3 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="col-3 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="col-3 d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-user"></i>
+            </div>
         </div>
     </div>
 </footer>
