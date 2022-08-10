@@ -88,3 +88,22 @@ if (isset($_POST['product-add'])) {
                 </script>";
 
 }
+
+if (isset($_POST['admin-add'])) {
+
+    $name = $db_handle->checkValue($_POST['name']);
+
+    $email = $db_handle->checkValue($_POST['email']);
+
+    $password = $db_handle->checkValue($_POST['password']);
+
+    $role = $db_handle->checkValue($_POST['role']);
+
+    $insert = $db_handle->insertQuery("INSERT INTO `admin_login`(`name`,`email`,`password`,`role`) VALUES ('$name','$email','$password','$role')");
+
+    echo "<script>
+                document.cookie = 'alert = 1;';
+                window.location.href='Admins';
+                </script>";
+
+}

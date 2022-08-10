@@ -34,3 +34,14 @@ if (isset($_GET['product_id'])) {
                 window.location.href='Products';
                 </script>";
 }
+
+if (isset($_GET['admin_id'])) {
+    $id = $db_handle->checkValue($_GET['admin_id']);
+
+    $delete = $db_handle->insertQuery("DELETE FROM `admin_login` WHERE id='{$id}'");
+
+    echo "<script>
+                document.cookie = 'alert = 1;';
+                window.location.href='Admins';
+                </script>";
+}

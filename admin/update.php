@@ -111,5 +111,21 @@ if (isset($_POST['product-edit'])) {
 
 }
 
+if (isset($_POST['admin-edit'])) {
+    $id = $db_handle->checkValue($_POST['id']);
+    $name = $db_handle->checkValue($_POST['name']);
+    $email = $db_handle->checkValue($_POST['email']);
+    $password = $db_handle->checkValue($_POST['password']);
+    $role = $db_handle->checkValue($_POST['role']);
+
+    $update = $db_handle->insertQuery("update admin_login set name='$name', email='$email', password='$password', role='$role' where id='{$id}'");
+
+    echo "<script>
+                document.cookie = 'alert = 1;';
+                window.location.href='Admins';
+                </script>";
+
+}
+
 
 
