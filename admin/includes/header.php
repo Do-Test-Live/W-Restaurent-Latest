@@ -9,7 +9,7 @@
                         $pos = strrpos($url, '/');
                         $id = $pos === false ? $url : substr($url, $pos + 1);
                         $string = str_replace("-", " ", $id);
-                        echo $string;
+                        echo strtok($string, '?');
                         ?>
                     </div>
                 </div>

@@ -130,7 +130,7 @@
                                                 <div class="form-group col-md-12">
                                                     <label>Product Image</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" name="image">
+                                                        <input type="file" class="custom-file-input" name="image" required>
                                                         <label class="custom-file-label">Choose file</label>
                                                     </div>
                                                 </div>

@@ -30,3 +30,5 @@ RewriteRule ^Insert insert.php [L]
 
 RewriteRule ^Update update.php [L]
 
+RewriteRule ^Delete delete.php [L]
+
