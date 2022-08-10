@@ -20,6 +20,8 @@ RewriteRule ^Pending-Orders pending-orders.php [L]
 
 RewriteRule ^Orders orders.php [L]
 
+RewriteRule ^Order-Details order-details.php [L]
+
 RewriteRule ^Add-Admin add-admin.php [L]
 
 RewriteRule ^Admins admins.php [L]
