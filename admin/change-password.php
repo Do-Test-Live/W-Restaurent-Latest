@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="Insert" method="post" enctype="multipart/form-data">
+                                        <form action="Update" method="post" enctype="multipart/form-data">
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Old Password</label>

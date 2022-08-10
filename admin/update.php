@@ -25,7 +25,7 @@ if (isset($_POST['restaurant-edit'])) {
     $name = $db_handle->checkValue($_POST['name']);
     $status = $db_handle->checkValue($_POST['status']);
 
-    $update_value='';
+    $update_value = '';
 
     $image = '';
     if (!empty($_FILES['image']['name'])) {
@@ -45,13 +45,13 @@ if (isset($_POST['restaurant-edit'])) {
             $menu_image = "assets/img/restaurant/" . $file_name;
         }
 
-        $data=$db_handle->runQuery("SELECT * FROM `restaurant` WHERE id='$id'");
-        unlink('../'.$data[0]["image"]);
+        $data = $db_handle->runQuery("SELECT * FROM `restaurant` WHERE id='$id'");
+        unlink('../' . $data[0]["image"]);
 
-        $update_value.=",`image`='".$image."'";
+        $update_value .= ",`image`='" . $image . "'";
     }
 
-    $update = $db_handle->insertQuery("update restaurant set ".$update_value."name='$name', status='$status' where id='{$id}'");
+    $update = $db_handle->insertQuery("update restaurant set " . $update_value . "name='$name', status='$status' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
@@ -75,7 +75,7 @@ if (isset($_POST['product-edit'])) {
 
     $status = $db_handle->checkValue($_POST['status']);
 
-    $update_value='';
+    $update_value = '';
 
     $image = '';
     if (!empty($_FILES['image']['name'])) {
@@ -95,14 +95,14 @@ if (isset($_POST['product-edit'])) {
             $image = "assets/img/product/" . $file_name;
         }
 
-        $product=$db_handle->runQuery("SELECT * FROM `product` WHERE id='$id'");
-        unlink('../'.$product[0]["image"]);
+        $product = $db_handle->runQuery("SELECT * FROM `product` WHERE id='$id'");
+        unlink('../' . $product[0]["image"]);
 
-        $update_value.=",`image`='".$image."'";
+        $update_value .= ",`image`='" . $image . "'";
     }
 
 
-    $update = $db_handle->insertQuery("UPDATE `product` SET `time`='$time',`p_name`='$name',`restaurant_id`='$restaurant_id',`description`='$description',`price`='$price'".$update_value.",`status`='$status' WHERE `id`='$id'");
+    $update = $db_handle->insertQuery("UPDATE `product` SET `time`='$time',`p_name`='$name',`restaurant_id`='$restaurant_id',`description`='$description',`price`='$price'" . $update_value . ",`status`='$status' WHERE `id`='$id'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
@@ -125,6 +125,29 @@ if (isset($_POST['admin-edit'])) {
                 window.location.href='Admins';
                 </script>";
 
+}
+
+if (isset($_POST['password-change'])) {
+    $id = $db_handle->checkValue($_SESSION['user_id']);
+    $password = $db_handle->checkValue($_POST['old-password']);
+    $new_password = $db_handle->checkValue($_POST['new-password']);
+    $confirm_password = $db_handle->checkValue($_POST['confirm-password']);
+
+    $data = $db_handle->runQuery("SELECT * FROM `admin_login` WHERE id='$id'");
+
+    if ($password == $data[0]['password'] && $new_password == $confirm_password) {
+        $update = $db_handle->insertQuery("update admin_login set password='$password' where id='{$id}'");
+
+        echo "<script>
+                document.cookie = 'alert = 1;';
+                window.location.href='Admins';
+                </script>";
+    } else {
+        echo "<script>
+                document.cookie = 'alert = 2;';
+                window.location.href='Admins';
+                </script>";
+    }
 }
 
 
