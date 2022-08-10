@@ -4,6 +4,6 @@ RewriteRule ^Home index.php [L]
 
 RewriteRule ^Product product.php [L]
 
-RewriteRule ^Product-Detail product-details.php [L]
+RewriteRule ^Product-Details product-details.php [L]
 
 

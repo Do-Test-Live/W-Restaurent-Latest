@@ -1,9 +1,12 @@
+<?php
+require_once('includes/db-configure.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta p_name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -23,89 +26,60 @@
 
 <!-- Product Section Start -->
 <section class="container mt-3 mb-5 pb-5">
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Name</h5>
-                        </div>
-                        <div class="col-6 text-end">
-                            <h5 class="card-title">Price</h5>
-                        </div>
-                    </div>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-6">
-            <div class="card">
-                <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="card-title">Name</p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <p class="card-title">Price</p>
+    <?php
+    if (isset($_GET['product_id'])) {
+        $product_data = $db_handle->runQuery("SELECT * FROM product where id={$_GET['product_id']} order by id desc");
+        $row_count = $db_handle->numRows("SELECT * FROM product where id={$_GET['product_id']} order by id desc");
+
+        $restaurant_id = '';
+        for ($i = 0; $i < $row_count; $i++) {
+            $restaurant_id = $product_data[$i]["restaurant_id"];
+            ?>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="card">
+                        <img src="<?php echo $product_data[$i]["image"]; ?>" class="card-img-top card-product-image"
+                             alt="...">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="card-title"><?php echo $product_data[$i]["p_name"]; ?></h5>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <h5 class="card-title"><?php echo $product_data[$i]["price"]; ?></h5>
+                                </div>
+                            </div>
+                            <p class="card-text"><?php echo $product_data[$i]["description"]; ?></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="card-title">Name</p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <p class="card-title">Price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3 mb-5">
-        <div class="col-6">
-            <div class="card">
-                <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="card-title">Name</p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <p class="card-title">Price</p>
+        <?php } ?>
+        <div class="row mb-5">
+            <?php
+            $product_data = $db_handle->runQuery("SELECT * FROM product where restaurant_id={$restaurant_id} order by RAND() limit 4");
+            $row_count = $db_handle->numRows("SELECT * FROM product where restaurant_id={$restaurant_id} order by RAND() desc limit 4");
+            for ($i = 0; $i < $row_count; $i++) {
+                ?>
+                <div class="col-6 mt-3">
+                    <div class="card">
+                        <img src="<?php echo $product_data[$i]["image"]; ?>" class="card-img-top card-product-image" alt="...">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-title"><?php echo $product_data[$i]["p_name"]; ?></p>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <p class="card-title"><?php echo $product_data[$i]["price"]; ?></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
-        <div class="col-6">
-            <div class="card">
-                <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="card-title">Name</p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <p class="card-title">Price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php
+    } ?>
 </section>
 <!-- Product Section End -->
 

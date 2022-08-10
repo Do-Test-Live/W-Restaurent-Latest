@@ -1,9 +1,12 @@
+<?php
+require_once('includes/db-configure.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta p_name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -42,82 +45,38 @@
             </li>
         </ul>
     </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <a href="product-details.php" class="product-link">
-                    <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                </a>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Name</h5>
-                        </div>
-                        <div class="col-6 text-end">
-                            <h5 class="card-title">Price</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <a href="product-details.php" class="product-link">
-                    <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                </a>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Name</h5>
-                        </div>
-                        <div class="col-6 text-end">
-                            <h5 class="card-title">Price</h5>
+    <?php
+    if (isset($_GET['restaurant_id'])) {
+        $product_data = $db_handle->runQuery("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
+        $row_count = $db_handle->numRows("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
+
+        for ($i = 0; $i < $row_count; $i++) {
+            ?>
+
+            <div class="row mt-3 <?php if ($i + 1 == $row_count) {
+                echo 'mb-5';
+            } ?>">
+                <div class="col-12">
+                    <div class="card">
+                        <a href="Product-Details?product_id=<?php echo $product_data[$i]["id"]; ?>" class="product-link">
+                            <img src="<?php echo $product_data[$i]["image"]; ?>" class="card-img-top card-product-image"
+                                 alt="...">
+                        </a>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="card-title"><?php echo $product_data[$i]["p_name"]; ?></h5>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <h5 class="card-title"><?php echo $product_data[$i]["price"]; ?></h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card">
-                <a href="product-details.php" class="product-link">
-                    <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                </a>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Name</h5>
-                        </div>
-                        <div class="col-6 text-end">
-                            <h5 class="card-title">Price</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3 mb-5">
-        <div class="col-12">
-            <div class="card">
-                <a href="product-details.php" class="product-link">
-                    <img src="assets/images/product/1.jpg" class="card-img-top card-product-image" alt="...">
-                </a>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <h5 class="card-title">Name</h5>
-                        </div>
-                        <div class="col-6 text-end">
-                            <h5 class="card-title">Price</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php }
+    } ?>
 </section>
 <!-- Product Section End -->
 
