@@ -4,16 +4,16 @@ class DBController {
     private $user = "root";
     private $password = "";
     private $database = "restaurents";
-    private $from_email='noreply@skhalalfood.com';
+    private $from_email='test@test.com';
     private $notification_email='frogbidofficial@gmail.com';
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="restaurents.dotest.live"||$_SERVER['SERVER_NAME']=="www.restaurents.dotest.live"){
-            $this->host = "premium11";
-            $this->user = "biplgmwr_restaurents";
-            $this->password = "@5cT0oZ5pnD1";
-            $this->database = "biplgmwr_restaurents";
+        if($_SERVER['SERVER_NAME']=="app.nftprj.com"||$_SERVER['SERVER_NAME']=="www.app.nftprj.com"){
+            $this->host = "localhost";
+            $this->user = "u727820269_restaurants";
+            $this->password = "2#=Y:b|rfrS";
+            $this->database = "u727820269_restaurants";
         }
 
         $this->conn = $this->connectDB();
