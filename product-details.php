@@ -6,7 +6,7 @@ require_once('includes/db-configure.php');
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta p_name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -86,7 +86,7 @@ require_once('includes/db-configure.php');
 <footer class="fixed-bottom pb-3 pt-3 bg-custom">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-info btn-lg custom-button">Booking</button>
+            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">Booking</button>
         </div>
         <div class="row mt-4">
             <div class="col-3 d-flex justify-content-center align-items-center">

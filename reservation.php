@@ -20,7 +20,7 @@ require_once('includes/db-configure.php');
     <!-- Style CSS -->
     <link rel='stylesheet' href='assets/css/style.css'>
 
-    <title>Product - Restaurant</title>
+    <title>Reservation - Restaurant</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@ require_once('includes/db-configure.php');
     <div class="header">
         <ul class="nav d-flex justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active text-dark" aria-current="page" href="#">Booking</a>
+                <a class="nav-link active text-dark" aria-current="page" href="Booking">Booking</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">Recommend</a>
@@ -45,38 +45,57 @@ require_once('includes/db-configure.php');
             </li>
         </ul>
     </div>
-    <?php
-    if (isset($_GET['restaurant_id'])) {
-        $product_data = $db_handle->runQuery("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
-        $row_count = $db_handle->numRows("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
-
-        for ($i = 0; $i < $row_count; $i++) {
-            ?>
-
-            <div class="row mt-3 <?php if ($i + 1 == $row_count) {
-                echo 'mb-5';
-            } ?>">
-                <div class="col-12">
-                    <div class="card">
-                        <a href="Product-Details?product_id=<?php echo $product_data[$i]["id"]; ?>" class="product-link">
-                            <img src="<?php echo $product_data[$i]["image"]; ?>" class="card-img-top card-product-image"
-                                 alt="...">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-6">
-                                    <h5 class="card-title"><?php echo $product_data[$i]["p_name"]; ?></h5>
-                                </div>
-                                <div class="col-6 text-end">
-                                    <h5 class="card-title"><?php echo $product_data[$i]["price"]; ?></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php }
-    } ?>
+    <div class="row mb-5">
+        <div class="col-12 mt-3">
+            <h2 class="text-center">BOOK A TABLE</h2>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Date</label>
+            <h5>24/12/2022</h5>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Time & Price</label>
+            <h5>10:00 AM, HKD-7.99</h5>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Seat(s)</label>
+            <h5>15</h5>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Restaurant Name</label>
+            <h5>CityInn</h5>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Food Name</label>
+            <h5>Samosa</h5>
+        </div>
+        <div class="col-12 mt-3">
+            <h2 class="text-center">Customer Information</h2>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Dinner Name</label>
+            <input type="text" class="form-control"/>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control"/>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control"/>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Special Occasion</label>
+            <textarea class="form-control" placeholder="Special Occasion" rows="5"></textarea>
+        </div>
+        <div class="col-12 mt-3">
+            <label class="form-label">Food Allergies</label>
+            <textarea class="form-control" placeholder="Food Allergies" rows="5"></textarea>
+        </div>
+        <div class="col-12 mt-3 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg custom-button">Book Now</button>
+        </div>
+    </div>
 </section>
 <!-- Product Section End -->
 

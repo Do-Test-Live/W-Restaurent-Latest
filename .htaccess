@@ -2,8 +2,12 @@ RewriteEngine on
 
 RewriteRule ^Home index.php [L]
 
+RewriteRule ^Product-Details product-details.php [L]
+
 RewriteRule ^Product product.php [L]
 
-RewriteRule ^Product-Details product-details.php [L]
+RewriteRule ^Booking booking.php [L]
+
+RewriteRule ^Reservation reservation.php [L]
 
 

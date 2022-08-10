@@ -104,7 +104,7 @@ require_once('includes/db-configure.php');
 <footer class="fixed-bottom pb-3 pt-3 bg-custom">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-info btn-lg custom-button">Booking</button>
+            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">Booking</button>
         </div>
         <div class="row mt-4">
             <div class="col-3 d-flex justify-content-center align-items-center">
