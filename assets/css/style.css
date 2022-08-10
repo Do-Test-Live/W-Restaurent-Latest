@@ -9,7 +9,11 @@
 }
 
 body{
-    background: linear-gradient(210deg, #d6feff, #ffa38c);
+    background-image: linear-gradient(210deg, #d6feff, #ffa38c);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .bg-custom{

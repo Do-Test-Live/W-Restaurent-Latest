@@ -1,3 +1,6 @@
+<?php
+require_once('includes/db-configure.php');
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,158 +26,78 @@
 
 <!-- Product Section Start -->
 <section class="container mt-3 pt-2 mb-5 pb-5">
-    <div class="row">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
+    <?php
+    $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant order by id desc");
+    $row_count = $db_handle->numRows("SELECT * FROM restaurant order by id desc");
+
+    for ($i = 0; $i < $row_count; $i++) {
+        $c = 0;
+        ?>
+        <?php if ($i == 0) { ?>
+            <div class="row <?php if ($i + 1 == $row_count) {
+                echo 'mb-5';
+            } ?> ">
+                <div class="col-4 d-flex justify-content-center justify-content-center">
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+                    <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
+                    <div class="centered">
+                        <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
+                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center">
+                </div>
             </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
+        <?php } else if ($c == 0) {
+            $c = 1;
+            ?>
+            <div class="row product-margin <?php if ($i + 1 == $row_count) {
+                echo 'mb-5';
+            } ?> ">
+                <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+                    <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
+                    <div class="centered">
+                        <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
+                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center">
+                    <?php $i++; ?>
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+                    <?php if ($i < $row_count) { ?>
+                        <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
+                        <div class="centered">
+                            <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
+                               class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
+            <?php
+        } else {
+            $c = 0;
+            ?>
+            <div class="row product-margin <?php if ($i + 1 == $row_count) {
+                echo 'mb-5';
+            } ?> ">
+                <div class="col-4 d-flex justify-content-center justify-content-center">
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center img-text">
+                    <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
+                    <div class="centered">
+                        <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
+                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center justify-content-center">
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
-    <div class="row product-margin">
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-    </div>
-    <div class="row product-margin mb-5">
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center img-text">
-            <img src="assets/images/product/1.jpg" class="rounded-circle product-image">
-            <div class="centered">
-                <a href="product.php" class="product-link">Demo</a>
-            </div>
-        </div>
-        <div class="col-4 d-flex justify-content-center justify-content-center">
-        </div>
-    </div>
+        <?php } ?>
+        <?php
+    }
+    ?>
 </section>
 <!-- Product Section End -->
 
