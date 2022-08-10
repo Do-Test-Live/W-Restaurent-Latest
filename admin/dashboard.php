@@ -77,12 +77,17 @@
 												</svg>
 											</span>
                                         <div class="media-body">
-                                            <p class="fs-14 mb-2">Weekly Progress</p>
-                                            <span class="title text-black font-w600">42%</span>
+                                            <p class="fs-14 mb-2">Total Restaurant</p>
+                                            <span class="title text-black font-w600">
+                                                <?php
+                                                $data = $db_handle->runQuery("SELECT count(id) as total FROM restaurant order by id desc");
+                                                echo $data[0]['total'];
+                                                ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="progress" style="height:5px;">
-                                        <div class="progress-bar bg-success" style="width: 42%; height:5px;"
+                                        <div class="progress-bar bg-success" style="width: 100%; height:5px;"
                                              role="progressbar">
                                             <span class="sr-only">42% Complete</span>
                                         </div>
@@ -107,12 +112,17 @@
 												</svg>
 											</span>
                                         <div class="media-body">
-                                            <p class="fs-14 mb-2">Weekly Progress</p>
-                                            <span class="title text-black font-w600">42km</span>
+                                            <p class="fs-14 mb-2">Total Product</p>
+                                            <span class="title text-black font-w600">
+                                                <?php
+                                                $data = $db_handle->runQuery("SELECT count(id) as total FROM product order by id desc");
+                                                echo $data[0]['total'];
+                                                ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="progress" style="height:5px;">
-                                        <div class="progress-bar bg-secondary" style="width: 82%; height:5px;"
+                                        <div class="progress-bar bg-secondary" style="width: 100%; height:5px;"
                                              role="progressbar">
                                             <span class="sr-only">42% Complete</span>
                                         </div>
@@ -139,12 +149,17 @@
 												</svg>
 											</span>
                                         <div class="media-body">
-                                            <p class="fs-14 mb-2">Daily Cycling</p>
-                                            <span class="title text-black font-w600">230 Km</span>
+                                            <p class="fs-14 mb-2">Pending Orders</p>
+                                            <span class="title text-black font-w600">
+                                                <?php
+                                                $data = $db_handle->runQuery("SELECT count(id) as total FROM order_detail where status=0 order by id desc");
+                                                echo $data[0]['total'];
+                                                ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="progress" style="height:5px;">
-                                        <div class="progress-bar bg-danger" style="width: 90%; height:5px;"
+                                        <div class="progress-bar bg-danger" style="width: 100%; height:5px;"
                                              role="progressbar">
                                             <span class="sr-only">42% Complete</span>
                                         </div>
@@ -173,12 +188,17 @@
 												</svg>
 											</span>
                                         <div class="media-body">
-                                            <p class="fs-14 mb-2">Morning Yoga</p>
-                                            <span class="title text-black font-w600">18:34:21”</span>
+                                            <p class="fs-14 mb-2">Total Admin</p>
+                                            <span class="title text-black font-w600">
+                                                <?php
+                                                $data = $db_handle->runQuery("SELECT count(id) as total FROM admin_login order by id desc");
+                                                echo $data[0]['total'];
+                                                ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="progress" style="height:5px;">
-                                        <div class="progress-bar bg-warning" style="width: 42%; height:5px;"
+                                        <div class="progress-bar bg-warning" style="width: 100%; height:5px;"
                                              role="progressbar">
                                             <span class="sr-only">42% Complete</span>
                                         </div>
