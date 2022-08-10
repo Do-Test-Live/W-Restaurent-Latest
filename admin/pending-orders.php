@@ -61,7 +61,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Restaurant List</h4>
+                                    <h4 class="card-title">Pending Orders</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -122,8 +122,8 @@
                                                             </div>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item" href="#">View</a>
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <a class="dropdown-item" href="#">Delete</a>
+                                                                <a class="dropdown-item" href="#">Approve</a>
+                                                                <a class="dropdown-item" href="#">Decline</a>
                                                             </div>
                                                         </div>
                                                     </td>

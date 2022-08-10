@@ -2,6 +2,8 @@ RewriteEngine on
 
 RewriteRule ^Login index.php [L]
 
+RewriteRule ^Change-Password change-password.php [L]
+
 RewriteRule ^Logout logout.php [L]
 
 RewriteRule ^Dashboard dashboard.php [L]
