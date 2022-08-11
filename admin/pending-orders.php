@@ -1,4 +1,4 @@
-<?php require_once ('includes/session.php')?>
+<?php require_once('includes/session.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +8,14 @@
     <title>Pending Orders - Restaurants</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <?php require_once ('includes/css.php')?>
+    <?php require_once('includes/css.php') ?>
 </head>
 <body>
 
 <!--*******************
     Preloader start
 ********************-->
-<?php require_once ('includes/preloader.php')?>
+<?php require_once('includes/preloader.php') ?>
 <!--*******************
     Preloader end
 ********************-->
@@ -28,7 +28,7 @@
     <!--**********************************
         Nav header start
     ***********************************-->
-    <?php require_once ('includes/logoDetails.php')?>
+    <?php require_once('includes/logoDetails.php') ?>
     <!--**********************************
         Nav header end
     ***********************************-->
@@ -36,7 +36,7 @@
     <!--**********************************
         Header start
     ***********************************-->
-    <?php require_once ('includes/header.php')?>
+    <?php require_once('includes/header.php') ?>
     <!--**********************************
         Header end ti-comment-alt
     ***********************************-->
@@ -44,7 +44,7 @@
     <!--**********************************
         Sidebar start
     ***********************************-->
-    <?php require_once ('includes/sidebar.php')?>
+    <?php require_once('includes/sidebar.php') ?>
     <!--**********************************
         Sidebar end
     ***********************************-->
@@ -81,15 +81,15 @@
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM order_detail as o, product as p where o.status=0 order by o.id desc");
-                                            $row_count = $db_handle->numRows("SELECT * FROM order_detail as o, product as p where o.status=0 order by o.id desc");
+                                            $order_data = $db_handle->runQuery("SELECT * FROM order_detail where status=0 order by id desc");
+                                            $row_count = $db_handle->numRows("SELECT * FROM order_detail where status=0 order by id desc");
 
                                             for ($i = 0; $i < $row_count; $i++) {
                                                 ?>
                                                 <tr>
-                                                    <td><?php echo $i+1; ?></td>
+                                                    <td><?php echo $i + 1; ?></td>
                                                     <td><?php echo $order_data[$i]["name"]; ?></td>
-                                                    <td><?php echo $order_data[$i]["p_name"]; ?></td>
+                                                    <td><?php echo $order_data[$i]["food"]; ?></td>
                                                     <td><?php echo $order_data[$i]["number"]; ?></td>
                                                     <td><?php echo $order_data[$i]["email"]; ?></td>
                                                     <td><?php echo $order_data[$i]["price"]; ?></td>
@@ -121,9 +121,14 @@
                                                                 </svg>
                                                             </div>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">View</a>
-                                                                <a class="dropdown-item" href="#">Approve</a>
-                                                                <a class="dropdown-item" href="#">Decline</a>
+                                                                <a class="dropdown-item"
+                                                                   href="Order-Details?order_id=<?php echo $order_data[$i]["id"]; ?>">View</a>
+                                                                <?php if ($order_data[$i]["status"] == 0) { ?>
+                                                                    <a class="dropdown-item"
+                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Approve</a>
+                                                                    <a class="dropdown-item"
+                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Decline</a>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -149,7 +154,7 @@
     <!--**********************************
         Footer start
     ***********************************-->
-    <?php require_once ('includes/footer.php')?>
+    <?php require_once('includes/footer.php') ?>
     <!--**********************************
         Footer end
     ***********************************-->
@@ -162,6 +167,6 @@
 <!--**********************************
     Scripts
 ***********************************-->
-<?php require_once ('includes/js.php')?>
+<?php require_once('includes/js.php') ?>
 </body>
 </html>

@@ -75,25 +75,43 @@
                                                 <th>Email</th>
                                                 <th>Price</th>
                                                 <th>Time</th>
+                                                <th>Status</th>
                                                 <th>Updated AT</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $order_data = $db_handle->runQuery("SELECT * FROM order_detail as o, product as p order by o.id desc");
-                                            $row_count = $db_handle->numRows("SELECT * FROM order_detail as o, product as p order by o.id desc");
+                                            $order_data = $db_handle->runQuery("SELECT * FROM order_detail order by id desc");
+                                            $row_count = $db_handle->numRows("SELECT * FROM order_detail order by id desc");
 
                                             for ($i = 0; $i < $row_count; $i++) {
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $i+1; ?></td>
                                                     <td><?php echo $order_data[$i]["name"]; ?></td>
-                                                    <td><?php echo $order_data[$i]["p_name"]; ?></td>
+                                                    <td><?php echo $order_data[$i]["food"]; ?></td>
                                                     <td><?php echo $order_data[$i]["number"]; ?></td>
                                                     <td><?php echo $order_data[$i]["email"]; ?></td>
                                                     <td><?php echo $order_data[$i]["price"]; ?></td>
                                                     <td><?php echo $order_data[$i]["time"]; ?></td>
+                                                    <td>
+                                                        <?php
+                                                        if ($order_data[$i]["status"] == 0) {
+                                                            ?>
+                                                            <span class="badge light badge-info">Pending</span>
+                                                            <?php
+                                                        } else if ($order_data[$i]["status"] == 1) {
+                                                            ?>
+                                                            <span class="badge light badge-success">Approve</span>
+                                                            <?php
+                                                        } else if ($order_data[$i]["status"] == 2) {
+                                                            ?>
+                                                            <span class="badge light badge-success">Decline</span>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </td>
                                                     <td>
                                                         <?php
 
@@ -121,9 +139,13 @@
                                                                 </svg>
                                                             </div>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#">View</a>
-                                                                <a class="dropdown-item" href="#">Approve</a>
-                                                                <a class="dropdown-item" href="#">Decline</a>
+                                                                <a class="dropdown-item" href="Order-Details?order_id=<?php echo $order_data[$i]["id"]; ?>">View</a>
+                                                                <?php if ($order_data[$i]["status"] == '0') { ?>
+                                                                    <a class="dropdown-item"
+                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Approve</a>
+                                                                    <a class="dropdown-item"
+                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Decline</a>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </td>
