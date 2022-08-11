@@ -15,7 +15,7 @@ console.log(window.location.origin);
 if (x == 1) {
     eraseCookie('alert');
     Swal.fire({
-        confirmButtonColor: '#cdaa7c',
+        confirmButtonColor: '#00c9bb',
         title: 'Thank you for your request!',
         text: 'We will get back to you shortly.',
         imageUrl: window.location.origin+'/images/alert-logo.png',
