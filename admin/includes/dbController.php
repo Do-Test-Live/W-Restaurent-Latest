@@ -4,7 +4,7 @@ class DBController {
     private $user = "root";
     private $password = "";
     private $database = "restaurents";
-    private $from_email='test@test.com';
+    private $from_email='official@nftprj.com';
     private $notification_email='frogbidofficial@gmail.com';
     private $conn;
 
