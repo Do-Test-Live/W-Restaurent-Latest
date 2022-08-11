@@ -20,6 +20,8 @@ require_once('includes/db-configure.php');
     <!-- Style CSS -->
     <link rel='stylesheet' href='assets/css/style.css'>
 
+    <link rel="icon" type="image/png" sizes="16x16" href="admin/images/favicon.png">
+
     <title>Booking - Restaurant</title>
 </head>
 <body>
@@ -48,33 +50,49 @@ require_once('includes/db-configure.php');
     <div class="row mb-5">
         <div class="col-12 mt-3">
             <label class="form-label">Seat(s)</label>
-            <input type="email" class="form-control"/>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Choose..</option>
+                <?php
+                for ($i = 1; $i < 21; $i++) {
+                    ?>
+                    <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </div>
         <div class="col-12 mt-3">
             <label class="form-label">Date</label>
-            <input type="date" class="form-control"/>
+            <input type="text" class="form-control form-home" data-language='en'
+                   data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                   min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date" required/>
         </div>
         <div class="col-12 mt-3">
             <label class="form-label">Restaurant</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" id="restaurant" onchange="setProduct(this.value);" required>
+                <option value="">Choose..</option>
+                <?php
+                $order_data = $db_handle->runQuery("SELECT * FROM `restaurant` where status='1'");
+                $row = $db_handle->numRows("SELECT * FROM `restaurant` where status='1'");
+                for ($i = 0; $i < $row; $i++) {
+                    ?>
+                    <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                    <?php
+                }
+                ?>
             </select>
         </div>
         <div class="col-12 mt-3">
             <label class="form-label">Product</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" id="food_name" onchange="setFoodPrice(this.value);" required>
+                <option value="" disabled>Select Date and Restaurant First</option>
             </select>
         </div>
         <div class="col-12 mt-3">
             <label class="form-label">Time & Price</label>
-            <input type="text" class="form-control"/>
+            <select class="form-select" name="price" id="food_price" required>
+                <option value="" disabled>Select Date, Restaurant and Product First</option>
+            </select>
         </div>
         <div class="col-12 mt-3 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary btn-lg custom-button">Submit</button>
@@ -110,8 +128,39 @@ require_once('includes/db-configure.php');
 <!-- Swiper JS -->
 <script src="assets/vendors/swiper/js/swiper.min.js"></script>
 
+<!-- JQuery JS -->
+<script src="assets/vendors/jquery/jquery.min.js"></script>
+
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
+<script>
+    function setFoodPrice(value) {
+        let date = $('#date').val();
 
+        $.ajax({
+            type: 'post',
+            url: 'Get-Product-Price-And-Time',
+            data: {
+                product_id: value, date: date
+            },
+            success: function (data) {
+                $('#food_price').html(data);
+            }
+        });
+    }
+
+    function setProduct(value) {
+        $.ajax({
+            type: 'post',
+            url: 'Get-Restaurant',
+            data: {
+                restaurant_id: value
+            },
+            success: function (data) {
+                $('#food_name').html(data);
+            }
+        });
+    }
+</script>
 </body>
 </html>

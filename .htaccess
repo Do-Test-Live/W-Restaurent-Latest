@@ -10,4 +10,8 @@ RewriteRule ^Booking booking.php [L]
 
 RewriteRule ^Reservation reservation.php [L]
 
+RewriteRule ^Get-Restaurant getRestaurant.php [L]
+
+RewriteRule ^Get-Product-Price-And-Time getProductPriceTime.php [L]
+
 

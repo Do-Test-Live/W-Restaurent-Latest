@@ -20,6 +20,8 @@ require_once('includes/db-configure.php');
     <!-- Style CSS -->
     <link rel='stylesheet' href='assets/css/style.css'>
 
+    <link rel="icon" type="image/png" sizes="16x16" href="admin/images/favicon.png">
+
     <title>Reservation - Restaurant</title>
 </head>
 <body>
