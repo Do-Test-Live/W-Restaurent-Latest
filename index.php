@@ -134,5 +134,10 @@ require_once('includes/db-configure.php');
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
+<!-- SweetAlert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="assets/js/toaster-init.js"></script>
+
 </body>
 </html>

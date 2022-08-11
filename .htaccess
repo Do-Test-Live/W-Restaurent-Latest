@@ -16,4 +16,8 @@ RewriteRule ^Get-Product-Price-And-Time getProductPriceTime.php [L]
 
 RewriteRule ^Email email.php [L]
 
+RewriteRule ^Order-Detail order-detail.php [L]
+
+
+
 
