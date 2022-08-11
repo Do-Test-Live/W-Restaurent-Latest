@@ -47,64 +47,69 @@ require_once('includes/db-configure.php');
             </li>
         </ul>
     </div>
-    <div class="row mb-5">
-        <div class="col-12 mt-3">
-            <label class="form-label">Seat(s)</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Choose..</option>
-                <?php
-                for ($i = 1; $i < 21; $i++) {
-                    ?>
-                    <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+    <form action="Reservation" method="get">
+        <div class="row mb-5">
+            <div class="col-12 mt-3">
+                <label class="form-label">Seat(s)</label>
+                <select class="form-select" aria-label="Default select example" name="seat_number" required>
+                    <option selected>Choose..</option>
                     <?php
-                }
-                ?>
-            </select>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Date</label>
-            <input type="text" class="form-control form-home" data-language='en'
-                   data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
-                   min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date" required/>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Restaurant</label>
-            <select class="form-select" id="restaurant" onchange="setProduct(this.value);" required>
-                <option value="">Choose..</option>
-                <?php
-                $order_data = $db_handle->runQuery("SELECT * FROM `restaurant` where status='1'");
-                $row = $db_handle->numRows("SELECT * FROM `restaurant` where status='1'");
-                for ($i = 0; $i < $row; $i++) {
+                    for ($i = 1; $i < 21; $i++) {
+                        ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i . ' Seat(s)' ?></option>
+                        <?php
+                    }
                     ?>
-                    <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                </select>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Date</label>
+                <input type="text" class="form-control form-home" data-language='en'
+                       data-date-format="dd - mm - yyyy" placeholder="Today" name="date"
+                       min="<?php echo date("Y-m-d"); ?>" onfocus="(this.type = 'date')" id="date" required/>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Restaurant</label>
+                <select class="form-select" name="restaurant" id="restaurant" onchange="setProduct(this.value);"
+                        required>
+                    <option value="">Choose..</option>
                     <?php
-                }
-                ?>
-            </select>
+                    $order_data = $db_handle->runQuery("SELECT * FROM `restaurant` where status='1'");
+                    $row = $db_handle->numRows("SELECT * FROM `restaurant` where status='1'");
+                    for ($i = 0; $i < $row; $i++) {
+                        ?>
+                        <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Product</label>
+                <select class="form-select" name="food_name" id="food" onchange="setFoodPrice(this.value);" required>
+                    <option value="" disabled>Select Date and Restaurant First</option>
+                </select>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Time & Price</label>
+                <select class="form-select" name="price" id="price" required>
+                    <option value="" disabled>Select Date, Restaurant and Product First</option>
+                </select>
+            </div>
+            <div class="col-12 mt-3 d-flex justify-content-center">
+                <button type="submit" name="submit" class="btn btn-primary btn-lg custom-button">Submit</button>
+            </div>
         </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Product</label>
-            <select class="form-select" id="food_name" onchange="setFoodPrice(this.value);" required>
-                <option value="" disabled>Select Date and Restaurant First</option>
-            </select>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Time & Price</label>
-            <select class="form-select" name="price" id="food_price" required>
-                <option value="" disabled>Select Date, Restaurant and Product First</option>
-            </select>
-        </div>
-        <div class="col-12 mt-3 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg custom-button">Submit</button>
-        </div>
-    </div>
+    </form>
 </section>
 <!-- Product Section End -->
 
 <footer class="fixed-bottom pb-3 pt-3 bg-custom">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">Booking</button>
+            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">
+                Booking
+            </button>
         </div>
         <div class="row mt-4">
             <div class="col-3 d-flex justify-content-center align-items-center">
@@ -144,7 +149,7 @@ require_once('includes/db-configure.php');
                 product_id: value, date: date
             },
             success: function (data) {
-                $('#food_price').html(data);
+                $('#price').html(data);
             }
         });
     }
@@ -157,7 +162,7 @@ require_once('includes/db-configure.php');
                 restaurant_id: value
             },
             success: function (data) {
-                $('#food_name').html(data);
+                $('#food').html(data);
             }
         });
     }

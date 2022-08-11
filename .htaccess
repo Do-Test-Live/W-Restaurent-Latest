@@ -14,4 +14,6 @@ RewriteRule ^Get-Restaurant getRestaurant.php [L]
 
 RewriteRule ^Get-Product-Price-And-Time getProductPriceTime.php [L]
 
+RewriteRule ^Email email.php [L]
+
 

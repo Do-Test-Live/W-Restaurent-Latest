@@ -75,7 +75,7 @@
                                         <div class="mt-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex justify-content-lg-end justify-content-md-center justify-content-xs-start">
                                             <div class="row align-items-center">
                                                 <div class="col-lg-12 mt-3">
-                                                    <img src="images/qr.png" class="img-fluid width110">
+                                                    <img src='https://chart.googleapis.com/chart?chof=.svg&choe=UTF-8&cht=qr&chs=110x110&chl=$url' class="img-fluid width110"/>
                                                 </div>
                                             </div>
                                         </div>

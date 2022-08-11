@@ -47,64 +47,115 @@ require_once('includes/db-configure.php');
             </li>
         </ul>
     </div>
-    <div class="row mb-5">
-        <div class="col-12 mt-3">
-            <h2 class="text-center">BOOK A TABLE</h2>
+    <form action="Email" method="post">
+        <div class="row mb-5">
+            <div class="col-12 mt-3">
+                <h2 class="text-center">BOOK A TABLE</h2>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Date</label>
+                <h5>
+                    <?php
+                    if (!isset($_GET['date'])) {
+                        header('location:Home');
+                    }
+
+                    if (isset($_GET['date'])) {
+                        echo $_GET['date'];
+                    }
+                    ?>
+                </h5>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Time & Price</label>
+                <h5>
+                    <?php
+                    if (isset($_GET['price'])) {
+                        echo $_GET['price'];
+                    }
+                    ?>
+                </h5>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Seat(s)</label>
+                <h5>
+                    <?php
+                    if (isset($_GET['seat_number'])) {
+                        echo $_GET['seat_number'];
+                    }
+                    ?>
+                </h5>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Restaurant Name</label>
+                <h5>
+                    <?php
+                    if (isset($_GET['restaurant'])) {
+                        $order_data = $db_handle->runQuery("SELECT * FROM `restaurant` where id={$_GET['restaurant']}");
+                        echo $order_data[0]['name'];
+                    }
+                    ?>
+                </h5>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Food Name</label>
+                <h5>
+                    <?php
+                    if (isset($_GET['food_name'])) {
+                        $order_data = $db_handle->runQuery("SELECT * FROM `product` where id={$_GET['food_name']}");
+                        echo $order_data[0]['p_name'];
+                    }
+                    ?>
+                </h5>
+            </div>
+            <input type="hidden" value="<?php echo $_GET['date']; ?>" name="date"/>
+            <input type="hidden" value="<?php echo $_GET['price']; ?>" name="time"/>
+            <input type="hidden" value="<?php echo $_GET['seat_number']; ?>" name="seat_number"/>
+            <input type="hidden" name="restaurant" value="<?php
+            $order_data = $db_handle->runQuery("SELECT * FROM `restaurant` where id={$_GET['restaurant']}");
+            echo $order_data[0]['name'];
+            ?>"/>
+            <input type="hidden" name="food" value="<?php
+            $order_data = $db_handle->runQuery("SELECT * FROM `product` where id={$_GET['food_name']}");
+            echo $order_data[0]['p_name'];
+            ?>"/>
+            <div class="col-12 mt-3">
+                <h2 class="text-center">Customer Information</h2>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Dinner Name</label>
+                <input type="text" class="form-control"  name="name" required/>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="number" required/>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" name="email" required/>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Special Occasion</label>
+                <textarea class="form-control" placeholder="Special Occasion" rows="5" name="occasion"></textarea>
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label">Food Allergies</label>
+                <textarea class="form-control" placeholder="Food Allergies" rows="5" name="alergies"></textarea>
+            </div>
+            <div class="col-12 mt-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-lg custom-button" name="submit">Book Now</button>
+            </div>
         </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Date</label>
-            <h5>24/12/2022</h5>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Time & Price</label>
-            <h5>10:00 AM, HKD-7.99</h5>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Seat(s)</label>
-            <h5>15</h5>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Restaurant Name</label>
-            <h5>CityInn</h5>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Food Name</label>
-            <h5>Samosa</h5>
-        </div>
-        <div class="col-12 mt-3">
-            <h2 class="text-center">Customer Information</h2>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Dinner Name</label>
-            <input type="text" class="form-control"/>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Phone Number</label>
-            <input type="text" class="form-control"/>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Email</label>
-            <input type="text" class="form-control"/>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Special Occasion</label>
-            <textarea class="form-control" placeholder="Special Occasion" rows="5"></textarea>
-        </div>
-        <div class="col-12 mt-3">
-            <label class="form-label">Food Allergies</label>
-            <textarea class="form-control" placeholder="Food Allergies" rows="5"></textarea>
-        </div>
-        <div class="col-12 mt-3 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg custom-button">Book Now</button>
-        </div>
-    </div>
+    </form>
 </section>
 <!-- Product Section End -->
 
 <footer class="fixed-bottom pb-3 pt-3 bg-custom">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">Booking</button>
+            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">
+                Booking
+            </button>
         </div>
         <div class="row mt-4">
             <div class="col-3 d-flex justify-content-center align-items-center">
