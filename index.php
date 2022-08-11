@@ -27,11 +27,10 @@ require_once('includes/db-configure.php');
 <!-- Product Section Start -->
 <section class="container mt-3 pt-2 mb-5 pb-5">
     <?php
-    $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant order by id desc");
-    $row_count = $db_handle->numRows("SELECT * FROM restaurant order by id desc");
-
+    $restaurant_data = $db_handle->runQuery("SELECT * FROM restaurant where status=1 order by id desc");
+    $row_count = $db_handle->numRows("SELECT * FROM restaurant where status=1 order by id desc");
+    $c = 0;
     for ($i = 0; $i < $row_count; $i++) {
-        $c = 0;
         ?>
         <?php if ($i == 0) { ?>
             <div class="row <?php if ($i + 1 == $row_count) {
@@ -104,7 +103,9 @@ require_once('includes/db-configure.php');
 <footer class="fixed-bottom pb-3 pt-3 bg-custom">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">Booking</button>
+            <button type="button" class="btn btn-info btn-lg custom-button" onclick="window.location.href='Booking'">
+                Booking
+            </button>
         </div>
         <div class="row mt-4">
             <div class="col-3 d-flex justify-content-center align-items-center">

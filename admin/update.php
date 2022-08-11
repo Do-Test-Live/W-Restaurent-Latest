@@ -42,7 +42,7 @@ if (isset($_POST['restaurant-edit'])) {
             $attach_files = '';
         } else {
             move_uploaded_file($file_tmp, "../assets/img/restaurant/" . $file_name);
-            $menu_image = "assets/img/restaurant/" . $file_name;
+            $image = "assets/img/restaurant/" . $file_name;
         }
 
         $data = $db_handle->runQuery("SELECT * FROM `restaurant` WHERE id='$id'");
@@ -51,7 +51,7 @@ if (isset($_POST['restaurant-edit'])) {
         $update_value .= ",`image`='" . $image . "'";
     }
 
-    $update = $db_handle->insertQuery("update restaurant set " . $update_value . "name='$name', status='$status' where id='{$id}'");
+    $update = $db_handle->insertQuery("update restaurant set name='$name'" . $update_value . ", status='$status' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';

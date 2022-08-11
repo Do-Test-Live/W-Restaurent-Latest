@@ -156,7 +156,7 @@
                                                                 ?>
                                                                 <span class="badge light badge-danger">Not Available</span>
                                                                 <?php
-                                                            } else if ($product_data[$i]["status"] == 1) {
+                                                            } else if ($restaurant_data[$i]["status"] == 1) {
                                                                 ?>
                                                                 <span class="badge light badge-success">Available</span>
                                                                 <?php
