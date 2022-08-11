@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2022 at 01:44 PM
+-- Generation Time: Aug 11, 2022 at 11:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -55,7 +55,8 @@ INSERT INTO `admin_login` (`id`, `name`, `ip`, `image`, `email`, `password`, `ro
 CREATE TABLE `order_detail` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `restaurant` varchar(100) NOT NULL,
+  `food` varchar(100) NOT NULL,
   `code` varchar(8) NOT NULL,
   `date` varchar(20) NOT NULL,
   `time` varchar(20) NOT NULL,

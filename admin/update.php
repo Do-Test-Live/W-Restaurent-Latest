@@ -151,9 +151,9 @@ if (isset($_POST['password-change'])) {
 }
 
 if (isset($_GET['approve_order_id'])) {
-    $id = $db_handle->checkValue($_SESSION['approve_order_id']);
+    $id = $db_handle->checkValue($_GET['approve_order_id']);
 
-    $update = $db_handle->insertQuery("update order_detail set status=1 where id='{$id}'");
+    $update = $db_handle->insertQuery("update order_detail set status='1' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
@@ -162,9 +162,9 @@ if (isset($_GET['approve_order_id'])) {
 }
 
 if (isset($_GET['decline_order_id'])) {
-    $id = $db_handle->checkValue($_SESSION['decline_order_id']);
+    $id = $db_handle->checkValue($_GET['decline_order_id']);
 
-    $update = $db_handle->insertQuery("update order_detail set status=2 where id='{$id}'");
+    $update = $db_handle->insertQuery("update order_detail set status='2' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
