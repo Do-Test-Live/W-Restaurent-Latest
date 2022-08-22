@@ -99,15 +99,15 @@
                                                         <?php
                                                         if ($order_data[$i]["status"] == 0) {
                                                             ?>
-                                                            <span class="badge light badge-info">Pending</span>
+                                                            <span class="badge light badge-info">Accept</span>
                                                             <?php
                                                         } else if ($order_data[$i]["status"] == 1) {
                                                             ?>
-                                                            <span class="badge light badge-success">Approve</span>
+                                                            <span class="badge light badge-success">Accept</span>
                                                             <?php
                                                         } else if ($order_data[$i]["status"] == 2) {
                                                             ?>
-                                                            <span class="badge light badge-success">Decline</span>
+                                                            <span class="badge light badge-success">Not Accept</span>
                                                             <?php
                                                         }
                                                         ?>
@@ -142,9 +142,9 @@
                                                                 <a class="dropdown-item" href="Order-Details?order_id=<?php echo $order_data[$i]["id"]; ?>">View</a>
                                                                 <?php if ($order_data[$i]["status"] == '0') { ?>
                                                                     <a class="dropdown-item"
-                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Approve</a>
+                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Accept</a>
                                                                     <a class="dropdown-item"
-                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Decline</a>
+                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Not Accept</a>
                                                                 <?php } ?>
                                                             </div>
                                                         </div>

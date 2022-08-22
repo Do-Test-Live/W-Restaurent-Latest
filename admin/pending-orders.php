@@ -125,9 +125,9 @@
                                                                    href="Order-Details?order_id=<?php echo $order_data[$i]["id"]; ?>">View</a>
                                                                 <?php if ($order_data[$i]["status"] == 0) { ?>
                                                                     <a class="dropdown-item"
-                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Approve</a>
+                                                                       href="Update?approve_order_id=<?php echo $order_data[$i]["id"]; ?>">Accept</a>
                                                                     <a class="dropdown-item"
-                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Decline</a>
+                                                                       href="Update?decline_order_id=<?php echo $order_data[$i]["id"]; ?>">Not Accept</a>
                                                                 <?php } ?>
                                                             </div>
                                                         </div>
