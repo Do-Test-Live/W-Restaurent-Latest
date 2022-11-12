@@ -18,6 +18,6 @@ for ($i = 0; $i < count($time); $i++) {
 
     $date_current=date('Y-m-d H:i:s');
     ?>
-    <option value="<?php echo $time[$i].', HKD-'.$price[$i]; ?>" <?php if($date_new<$date_current){ echo 'disabled'; } ?>><?php echo $time[$i].', HKD-'.$price[$i]; ?></option>
+    <option value="<?php echo $time[$i].', HKD'.$price[$i]; ?>" <?php if($date_new<$date_current){ echo 'disabled'; } ?>><?php echo $time[$i].', HKD'.$price[$i]; ?></option>
     <?php
 }

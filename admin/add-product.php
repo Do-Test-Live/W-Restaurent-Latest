@@ -121,6 +121,13 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
+                                                    <label>Product Discount</label>
+                                                    <input type="text" class="form-control" name="discount"
+                                                           placeholder="Product Discount" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
                                                     <label>Product Description</label>
                                                     <textarea class="form-control" placeholder="Product Description"
                                                               name="description" required rows="5"></textarea>

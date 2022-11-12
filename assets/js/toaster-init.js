@@ -18,7 +18,7 @@ if (x == 1) {
         confirmButtonColor: '#00c9bb',
         title: 'Thank you for your request!',
         text: 'We will get back to you shortly.',
-        imageUrl: window.location.origin+'/images/alert-logo.png',
+        imageUrl: window.location.origin+'/assets/images/alert-logo.png',
         imageWidth: 400,
         imageHeight: 100,
         imageAlt: 'Custom image',

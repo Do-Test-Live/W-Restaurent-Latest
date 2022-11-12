@@ -181,7 +181,7 @@
                                                 </td>
                                                 <td class="right">
                                                     <?php
-                                                    echo 'HKD-' . $order_data[0]['price'];
+                                                    echo 'HKD' . $order_data[0]['price'];
                                                     ?>
                                                 </td>
                                             </tr>

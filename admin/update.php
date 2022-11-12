@@ -172,5 +172,26 @@ if (isset($_GET['decline_order_id'])) {
                 </script>";
 }
 
+if (isset($_POST['export-data'])) {
+    $s_date = $db_handle->checkValue($_POST['s_date']);
+    $e_date = $db_handle->checkValue($_POST['e_date']);
+
+    $order_data = $db_handle->runQuery("SELECT * FROM `order_detail` where date>='$s_date' and date<='$e_date' order by id desc");
+    $row_count = $db_handle->numRows("SELECT * FROM `order_detail` where date>='$s_date' and date<='$e_date' order by id desc");
+
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename=order_details' . date("_Ymdhisa") . '.csv');
+    $output = fopen("php://output", "w");
+    fputcsv($output, array('Order Number','Name', 'Restaurant', 'Food', 'Date', 'Time', 'Seat Number', 'Number', 'Email', 'Price', 'Occasion', 'Allergies'));
+
+    for ($i = 0; $i < $row_count; $i++) {
+        fputcsv($output, array($order_data[$i]["id"], $order_data[$i]["name"], $order_data[$i]["restaurant"], $order_data[$i]["food"],
+            $order_data[$i]["date"], $order_data[$i]["time"], $order_data[$i]["seat_number"],
+            $order_data[$i]["number"], $order_data[$i]["email"],$order_data[$i]["price"],
+            $order_data[$i]["occasion"],$order_data[$i]["alergies"]));
+    }
+    fclose($output);
+}
+
 
 

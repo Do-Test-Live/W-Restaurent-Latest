@@ -16,15 +16,25 @@ if ($send) {
     $row_count = $db_handle->numRows("SELECT * FROM order_detail where date='$previous_day' order by id desc");
 
     $row_data = '';
-    for ($i = 0; $i < $row_count; $i++) {
-        $row_data .= '<tr>
-                        <td>' . $order_data[$i]['id'] . '</td>
-                        <td>' . $order_data[$i]['name'] . '</td>
-                        <td>' . $order_data[$i]['restaurant'] . '</td>
-                        <td>' . $order_data[$i]['food'] . '</td>
-                        <td>HKD-' . $order_data[$i]['price'] . '</td>
-                        <td>HKD-' . round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2) . '</td>
-                    </tr>';
+    $total=0;
+    $total_seat_number=0;
+    if($row_count>0){
+        for ($i = 0; $i < $row_count; $i++) {
+            $row_data .= '<tr>
+                            <td>' . $order_data[$i]['id'] . '</td>
+                            <td>' . $order_data[$i]['name'] . '</td>
+                            <td>' . $order_data[$i]['restaurant'] . '</td>
+                            <td>' . $order_data[$i]['food'] . '</td>
+                            <td>HKD' . $order_data[$i]['price'] . '</td>
+                            <td>HKD' . round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2) . '</td>
+                        </tr>';
+            $total+=round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2);
+            $total_seat_number+=$order_data[$i]['seat_number'];
+        }
+    }else{
+        $row_data .= "<tr>
+                            <td colspan='6' style='text-align:center;'>No Result Found</td>
+                        </tr>";
     }
 
     $email_to = $db_handle->notify_email();
@@ -55,7 +65,7 @@ if ($send) {
                                 padding-top: 12px;
                                 padding-bottom: 12px;
                                 text-align: left;
-                                background-color: #04AA6D;
+                                background-color: #0B2A97;
                                 color: white;
                             }
                         </style>
@@ -87,6 +97,26 @@ if ($send) {
                                 </th>
                             </tr>
                            $row_data
+                            <tr>
+                                <th>
+                                   Total Order
+                                </th>
+                                <td>
+                                    $row_count
+                                </td>
+                                 <th>
+                                    Total Seat
+                                </th>
+                                <td>
+                                    $total_seat_number
+                                </td>
+                                <th>
+                                    Total Price
+                                </th>
+                                <td>
+                                    HKD$total
+                                </td>
+                            </tr>
                         </table>
                     
                     </div>
@@ -115,15 +145,25 @@ if ($send) {
     $order_data = $db_handle->runQuery("SELECT * FROM order_detail where date like '%$previous_month%' order by id desc");
     $row_count = $db_handle->numRows("SELECT * FROM order_detail where date like '%$previous_month%' order by id desc");
     $row_data = '';
+    $total=0;
+    $total_seat_number=0;
+    if($row_count>0){
     for ($i = 0; $i < $row_count; $i++) {
         $row_data .= '<tr>
                         <td>' . $order_data[$i]['id'] . '</td>
                         <td>' . $order_data[$i]['name'] . '</td>
                         <td>' . $order_data[$i]['restaurant'] . '</td>
                         <td>' . $order_data[$i]['food'] . '</td>
-                        <td>HKD-' . $order_data[$i]['price'] . '</td>
-                        <td>HKD-' . round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2) . '</td>
+                        <td>HKD' . $order_data[$i]['price'] . '</td>
+                        <td>HKD' . round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2) . '</td>
                     </tr>';
+        $total+=round($order_data[$i]['seat_number'] * $order_data[$i]['price'], 2);
+        $total_seat_number+=$order_data[$i]['seat_number'];
+    }
+    }else{
+        $row_data .= "<tr>
+                            <td colspan='6' style='text-align:center;'>No Result Found</td>
+                        </tr>";
     }
 
     $email_to = $db_handle->notify_email();
@@ -154,7 +194,7 @@ if ($send) {
                                 padding-top: 12px;
                                 padding-bottom: 12px;
                                 text-align: left;
-                                background-color: #04AA6D;
+                                background-color: #0B2A97;
                                 color: white;
                             }
                         </style>
@@ -186,6 +226,26 @@ if ($send) {
                                 </th>
                             </tr>
                            $row_data
+                            <tr>
+                                <th>
+                                   Total Order
+                                </th>
+                                <td>
+                                    $row_count
+                                </td>
+                                 <th>
+                                    Total Seat
+                                </th>
+                                <td>
+                                    $total_seat_number
+                                </td>
+                                <th>
+                                    Total Price
+                                </th>
+                                <td>
+                                    HKD$total
+                                </td>
+                            </tr>
                         </table>
                     
                     </div>

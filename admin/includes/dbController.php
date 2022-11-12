@@ -5,7 +5,7 @@ class DBController {
     private $password = "";
     private $database = "restaurents";
     private $from_email='official@nftprj.com';
-    private $notification_email='frogbidofficial@gmail.com';
+    private $notification_email='nftlauncher@gmail.com, ricoleung28@gmail.com';
     private $conn;
 
     function __construct() {

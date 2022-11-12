@@ -74,11 +74,23 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
+                                                    <label>Contact Number</label>
+                                                    <input type="text" class="form-control" name="contact_number" placeholder="Contact Number" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
                                                     <label>Restaurant Image</label>
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" name="image" required/>
                                                         <label class="custom-file-label">Choose file</label>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control" name="address" placeholder="Address" required>
                                                 </div>
                                             </div>
                                             <button type="submit" name="restaurant-add" class="btn btn-primary">Submit</button>
