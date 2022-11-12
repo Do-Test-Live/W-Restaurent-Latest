@@ -74,6 +74,12 @@
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
+                                                    <label>Restaurant Brand</label>
+                                                    <input type="text" class="form-control" name="brand" placeholder="Restaurant Brand" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
                                                     <label>Contact Number</label>
                                                     <input type="text" class="form-control" name="contact_number" placeholder="Contact Number" required>
                                                 </div>

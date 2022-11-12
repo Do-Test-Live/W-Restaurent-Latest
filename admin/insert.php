@@ -20,6 +20,7 @@ if (isset($_POST['restaurant-add'])) {
     $name = $db_handle->checkValue($_POST['name']);
     $contact_number = $db_handle->checkValue($_POST['contact_number']);
     $address = $db_handle->checkValue($_POST['address']);
+    $brand = $db_handle->checkValue($_POST['brand']);
 
     $image = '';
     if (!empty($_FILES['image']['name'])) {
@@ -40,7 +41,7 @@ if (isset($_POST['restaurant-add'])) {
         }
     }
 
-    $insert = $db_handle->insertQuery("INSERT INTO `restaurant`(`name`,`number`,`image`,`address`) VALUES ('$name','$contact_number','$image','$address')");
+    $insert = $db_handle->insertQuery("INSERT INTO `restaurant`(`name`,`brand`,`number`,`image`,`address`) VALUES ('$name','$brand','$contact_number','$image','$address')");
 
     echo "<script>
                 document.cookie = 'alert = 1;';

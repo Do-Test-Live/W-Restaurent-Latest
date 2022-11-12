@@ -26,6 +26,7 @@ if (isset($_POST['restaurant-edit'])) {
     $status = $db_handle->checkValue($_POST['status']);
     $contact_number = $db_handle->checkValue($_POST['contact_number']);
     $address = $db_handle->checkValue($_POST['address']);
+    $brand = $db_handle->checkValue($_POST['brand']);
 
     $update_value = '';
 
@@ -53,7 +54,7 @@ if (isset($_POST['restaurant-edit'])) {
         $update_value .= ",`image`='" . $image . "'";
     }
 
-    $update = $db_handle->insertQuery("update restaurant set name='$name'" . $update_value . ", status='$status', number='$contact_number', address='$address' where id='{$id}'");
+    $update = $db_handle->insertQuery("update restaurant set name='$name'" . $update_value . ", status='$status', brand='$brand', number='$contact_number', address='$address' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';

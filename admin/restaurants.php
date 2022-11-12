@@ -84,6 +84,13 @@
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="form-group col-md-12">
+                                                                <label>Restaurant Brand</label>
+                                                                <input type="text" class="form-control" name="brand"
+                                                                       placeholder="Restaurant Brand" value="<?php echo $data[0]['brand'] ?>" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
                                                                 <label>Status</label>
                                                                 <div class="dropdown bootstrap-select form-control default-select">
                                                                     <select id="inputState" class="form-control default-select"
@@ -146,6 +153,7 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Name</th>
+                                                    <th>Brand</th>
                                                     <th>Contact Number</th>
                                                     <th>Image</th>
                                                     <th>Address</th>
@@ -164,6 +172,7 @@
                                                     <tr>
                                                         <td><?php echo $i + 1; ?></td>
                                                         <td><?php echo $restaurant_data[$i]["name"]; ?></td>
+                                                        <td><?php echo $restaurant_data[$i]["brand"]; ?></td>
                                                         <td><?php echo $restaurant_data[$i]["number"]; ?></td>
                                                         <td><a href="../<?php echo $restaurant_data[$i]["image"]; ?>"
                                                                target="_blank">restaurant_image</a></td>
