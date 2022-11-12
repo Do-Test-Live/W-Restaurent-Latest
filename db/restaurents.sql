@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 12, 2022 at 06:03 AM
--- Server version: 10.5.12-MariaDB-cll-lve
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: Nov 12, 2022 at 09:30 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u727820269_restaurants`
+-- Database: `restaurents`
 --
 
 -- --------------------------------------------------------
@@ -215,6 +215,7 @@ CREATE TABLE `product` (
   `p_name` varchar(100) NOT NULL,
   `code` varchar(10) NOT NULL,
   `time` varchar(100) NOT NULL,
+  `discount` int(11) NOT NULL,
   `price` varchar(100) NOT NULL,
   `description` varchar(5000) NOT NULL,
   `image` varchar(200) NOT NULL,
@@ -226,10 +227,18 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `restaurant_id`, `p_name`, `code`, `time`, `price`, `description`, `image`, `status`, `updated_at`) VALUES
-(1, 3, 'Chicken fry', '0NVFI9ES', '10:00 AM, 3:00 PM', '7.99, 8.55', 'Yummy!', 'assets/img/product/21505_Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR-_02_03_11b-9.jpg', 1, '2022-08-11 09:54:50'),
-(2, 2, 'Pasta', 'BLU6TF4B', '10:00 AM, 3:00 PM', '7.99,79', 'Pasta with tomato sauce', '', 1, '2022-08-16 08:16:59'),
-(3, 7, 'test 16aug', 'XG8YIPCQ', '10:00 AM, 3:00 PM', '7.99, 8.55', 'Test', 'assets/img/product/14069_A64A05C4-67B3-4CDB-8AC3-E0C54C3FCC45.jpeg', 1, '2022-08-16 09:09:07');
+INSERT INTO `product` (`id`, `restaurant_id`, `p_name`, `code`, `time`, `discount`, `price`, `description`, `image`, `status`, `updated_at`) VALUES
+(1, 1, '9折', 'YV8Z3BCC', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '手工食品， 雪花酥， 蛋糕', 'assets/img/product/27714_1.jpg', 1, '2022-11-12 08:13:24'),
+(2, 2, '9折', 'ZXX7J1UL', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '泰國菜', 'assets/img/product/73141_2.jpg', 1, '2022-11-12 08:15:03'),
+(3, 3, '9折', 'N3OJGOZ7', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '日式火鍋', 'assets/img/product/34430_3.jpg', 1, '2022-11-12 08:15:27'),
+(4, 4, '9折', 'P0SU6U35', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '紅，白，酒', 'assets/img/product/98266_4.jpg', 1, '2022-11-12 08:15:46'),
+(5, 5, '9折', '9BXGXXFE', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '燒味店+餐廳', 'assets/img/product/8815_5.JPG', 1, '2022-11-12 08:16:10'),
+(6, 6, '9折', 'NLP7MVAR', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '寵物cafe', 'assets/img/product/42880_6.jpg', 1, '2022-11-12 08:16:34'),
+(7, 7, '9折', 'BA7GZ96T', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '日本低溫保鮮高質水果', 'assets/img/product/41464_7.jpg', 1, '2022-11-12 08:17:11'),
+(8, 8, '8折', '6BNIVEB5', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', ' ', 'assets/img/product/83889_8.jpg', 1, '2022-11-12 08:17:37'),
+(9, 9, '  ', 'TZWZR1AB', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '兩位消費滿$800送湯底(此優惠只\r\n限星期日至三)\r\n', 'assets/img/product/5545_9.jpg', 1, '2022-11-12 08:19:04'),
+(10, 10, '8折', 'FY7SK5NB', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '所有套餐', 'assets/img/product/92162_10.jpg', 1, '2022-11-12 08:19:33'),
+(11, 11, '全單九折 送小食現炸酥肉一客', 'XDD3K94O', '10:00 AM, 3:00 PM', 0, '7.99, 8.55', '川式火鍋店', 'assets/img/product/23421_11.jpg', 1, '2022-11-12 08:19:56');
 
 -- --------------------------------------------------------
 
@@ -240,6 +249,9 @@ INSERT INTO `product` (`id`, `restaurant_id`, `p_name`, `code`, `time`, `price`,
 CREATE TABLE `restaurant` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `brand` varchar(150) NOT NULL,
+  `number` varchar(150) NOT NULL,
+  `address` varchar(500) NOT NULL,
   `image` varchar(250) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -249,14 +261,18 @@ CREATE TABLE `restaurant` (
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`id`, `name`, `image`, `status`, `updated_at`) VALUES
-(1, 'MC Donald\'s ', 'assets/img/restaurant/65130_1.png', 1, '2022-08-11 09:49:50'),
-(2, 'Pizza Hut', 'assets/img/restaurant/42185_2.png', 1, '2022-08-11 09:50:19'),
-(3, 'KFC', 'assets/img/restaurant/22909_3.png', 1, '2022-08-11 09:51:05'),
-(4, 'Domino\'s', 'assets/img/restaurant/73213_4.png', 1, '2022-08-11 09:51:27'),
-(5, 'BurgerKing', 'assets/img/restaurant/44945_5.png', 1, '2022-08-11 09:51:49'),
-(6, 'FoodCircles', 'assets/img/restaurant/90521_6.png', 1, '2022-08-25 09:46:04'),
-(7, 'Chipotle', 'assets/img/restaurant/43820_78564B23-87B4-4B79-A70A-EE74B08E360C.jpeg', 1, '2022-08-16 09:05:34');
+INSERT INTO `restaurant` (`id`, `name`, `brand`, `number`, `address`, `image`, `status`, `updated_at`) VALUES
+(1, 'Wendy Sze', '甜施施', '5136 3672', '香港島中西區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(2, '江振偉', '泰出色泰國餐廳', '2571 2287', '油尖旺區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(3, 'Fanny Lo', '酒鍋 ( 銅鑼灣 ) ', '2838 8000', '灣仔區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(4, 'Fanny Lo', 'E1 Cerdo', '2838 8000', '荃灣區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(5, 'Fanny Lo', '明昇行酒業', '2838 8000', '香港島東區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(6, 'Chan Yuk<br/> Bowie', '香港豆+柴咖啡廳', '5931 8931', '灣仔區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:11:25'),
+(7, 'Felix Lau', '薈萃果品有限公司', '9239 8757', '觀塘區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(8, '鄭生', '樂 Teppanyaki', '', '沙田區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(9, 'Victor', '酒鍋 ', '9081 4907', '油尖旺區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(10, '鄭生', '鐵板燒', '6339 0012', '油尖旺區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50'),
+(11, '鄭生', '碼頭故事', '6339 0012', '油尖旺區', 'assets/img/restaurant/86118_transparent.png', 1, '2022-11-12 08:05:50');
 
 --
 -- Indexes for dumped tables
@@ -330,13 +346,13 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
