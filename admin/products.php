@@ -130,6 +130,13 @@
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="form-group col-md-12">
+                                                                <label>Product Discount</label>
+                                                                <input type="text" class="form-control" name="discount"
+                                                                       placeholder="Product Discount" value="<?php echo $data[0]['discount'] ?>" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
                                                                 <label>Product Description</label>
                                                                 <textarea class="form-control" placeholder="Product Description"
                                                                           name="description" required rows="5"><?php echo $data[0]['description'] ?></textarea>
@@ -185,6 +192,7 @@
                                                     <th>Name</th>
                                                     <th>Restaurant</th>
                                                     <th>Time</th>
+                                                    <th>Discount</th>
                                                     <th>Price</th>
                                                     <th>Description</th>
                                                     <th>Availability</th>
@@ -217,6 +225,9 @@
                                                                 }
                                                             }
                                                             ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $product_data[$i]["discount"]; ?>
                                                         </td>
                                                         <td>
                                                             <?php $sb = explode(',', $product_data[$i]["price"]);

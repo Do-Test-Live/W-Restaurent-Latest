@@ -97,11 +97,25 @@
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="form-group col-md-12">
+                                                                <label>Contact Number</label>
+                                                                <input type="text" class="form-control" name="contact_number"
+                                                                       placeholder="Contact Number" value="<?php echo $data[0]['number'] ?>" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
                                                                 <label>Restaurant Image</label>
                                                                 <div class="custom-file">
                                                                     <input type="file" class="custom-file-input" name="image"/>
                                                                     <label class="custom-file-label">Choose file</label>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-12">
+                                                                <label>Address</label>
+                                                                <input type="text" class="form-control" name="address"
+                                                                       placeholder="Address" value="<?php echo $data[0]['address'] ?>" required/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -132,7 +146,9 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Name</th>
+                                                    <th>Contact Number</th>
                                                     <th>Image</th>
+                                                    <th>Address</th>
                                                     <th>Availability</th>
                                                     <th>Updated AT</th>
                                                     <th>Action</th>
@@ -148,8 +164,10 @@
                                                     <tr>
                                                         <td><?php echo $i + 1; ?></td>
                                                         <td><?php echo $restaurant_data[$i]["name"]; ?></td>
+                                                        <td><?php echo $restaurant_data[$i]["number"]; ?></td>
                                                         <td><a href="../<?php echo $restaurant_data[$i]["image"]; ?>"
                                                                target="_blank">restaurant_image</a></td>
+                                                        <td><?php echo $restaurant_data[$i]["address"]; ?></td>
                                                         <td>
                                                             <?php
                                                             if ($restaurant_data[$i]["status"] == 0) {

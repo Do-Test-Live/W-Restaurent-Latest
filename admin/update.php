@@ -24,6 +24,8 @@ if (isset($_POST['restaurant-edit'])) {
     $id = $db_handle->checkValue($_POST['id']);
     $name = $db_handle->checkValue($_POST['name']);
     $status = $db_handle->checkValue($_POST['status']);
+    $contact_number = $db_handle->checkValue($_POST['contact_number']);
+    $address = $db_handle->checkValue($_POST['address']);
 
     $update_value = '';
 
@@ -51,7 +53,7 @@ if (isset($_POST['restaurant-edit'])) {
         $update_value .= ",`image`='" . $image . "'";
     }
 
-    $update = $db_handle->insertQuery("update restaurant set name='$name'" . $update_value . ", status='$status' where id='{$id}'");
+    $update = $db_handle->insertQuery("update restaurant set name='$name'" . $update_value . ", status='$status', number='$contact_number', address='$address' where id='{$id}'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
@@ -70,6 +72,8 @@ if (isset($_POST['product-edit'])) {
     $time = $db_handle->checkValue($_POST['time']);
 
     $price = $db_handle->checkValue($_POST['price']);
+
+    $discount = $db_handle->checkValue($_POST['discount']);
 
     $description = $db_handle->checkValue($_POST['description']);
 
@@ -102,7 +106,7 @@ if (isset($_POST['product-edit'])) {
     }
 
 
-    $update = $db_handle->insertQuery("UPDATE `product` SET `time`='$time',`p_name`='$name',`restaurant_id`='$restaurant_id',`description`='$description',`price`='$price'" . $update_value . ",`status`='$status' WHERE `id`='$id'");
+    $update = $db_handle->insertQuery("UPDATE `product` SET `time`='$time',`p_name`='$name',`restaurant_id`='$restaurant_id',`description`='$description',`discount`='$discount',`price`='$price'" . $update_value . ",`status`='$status' WHERE `id`='$id'");
 
     echo "<script>
                 document.cookie = 'alert = 1;';
