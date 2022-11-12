@@ -49,8 +49,8 @@ require_once('includes/db-configure.php');
     </div>
     <?php
     if (isset($_GET['restaurant_id'])) {
-        $product_data = $db_handle->runQuery("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
-        $row_count = $db_handle->numRows("SELECT * FROM product where restaurant_id={$_GET['restaurant_id']} order by id desc");
+        $product_data = $db_handle->runQuery("SELECT * FROM restaurant, product where product.restaurant_id=restaurant.id and product.restaurant_id={$_GET['restaurant_id']} order by product.id desc");
+        $row_count = $db_handle->numRows("SELECT * FROM product, restaurant where product.restaurant_id=restaurant.id and product.restaurant_id={$_GET['restaurant_id']} order by product.id desc");
 
         for ($i = 0; $i < $row_count; $i++) {
             ?>
@@ -68,6 +68,10 @@ require_once('includes/db-configure.php');
                             <div class="row">
                                 <div class="col-6">
                                     <h5 class="card-title"><?php echo $product_data[$i]["p_name"]; ?></h5>
+                                    <p><?php echo $product_data[$i]["name"]; ?></p>
+                                    <p><?php echo $product_data[$i]["brand"]; ?></p>
+                                    <p><?php echo $product_data[$i]["address"]; ?></p>
+                                    <p><?php echo $product_data[$i]["number"]; ?></p>
                                 </div>
                                 <div class="col-6 text-end">
                                     <h5 class="card-title"><?php echo $product_data[$i]["price"]; ?></h5>

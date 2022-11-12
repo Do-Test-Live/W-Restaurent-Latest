@@ -194,6 +194,7 @@
                                                     <th>Time</th>
                                                     <th>Discount</th>
                                                     <th>Price</th>
+                                                    <th>Image</th>
                                                     <th>Description</th>
                                                     <th>Availability</th>
                                                     <th>Updated AT</th>
@@ -245,6 +246,9 @@
                                                                target="_blank">
                                                                 product_image
                                                             </a>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $product_data[$i]["description"]; ?>
                                                         </td>
                                                         <td>
                                                             <?php

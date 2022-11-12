@@ -89,7 +89,7 @@ if (isset($_POST['product-add'])) {
 
     echo "<script>
                 document.cookie = 'alert = 1;';
-                window.location.href='Products';
+                window.location.href='Add-Product';
                 </script>";
 
 }
