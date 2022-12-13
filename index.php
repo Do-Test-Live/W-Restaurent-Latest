@@ -44,7 +44,7 @@ require_once('includes/db-configure.php');
                     <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
                     <div class="centered">
                         <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
-                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                           class="product-link"><?php echo $restaurant_data[$i]["brand"]; ?></a>
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -60,7 +60,7 @@ require_once('includes/db-configure.php');
                     <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
                     <div class="centered">
                         <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
-                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                           class="product-link"><?php echo $restaurant_data[$i]["brand"]; ?></a>
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center justify-content-center">
@@ -71,7 +71,7 @@ require_once('includes/db-configure.php');
                         <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
                         <div class="centered">
                             <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
-                               class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                               class="product-link"><?php echo $restaurant_data[$i]["brand"]; ?></a>
                         </div>
                     <?php } ?>
                 </div>
@@ -89,7 +89,7 @@ require_once('includes/db-configure.php');
                     <img src="<?php echo $restaurant_data[$i]["image"]; ?>" class="rounded-circle product-image">
                     <div class="centered">
                         <a href="Product?restaurant_id=<?php echo $restaurant_data[$i]["id"]; ?>"
-                           class="product-link"><?php echo $restaurant_data[$i]["name"]; ?></a>
+                           class="product-link"><?php echo $restaurant_data[$i]["brand"]; ?></a>
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center justify-content-center">

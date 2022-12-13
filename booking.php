@@ -78,7 +78,7 @@ require_once('includes/db-configure.php');
                     $row = $db_handle->numRows("SELECT * FROM `restaurant` where status='1'");
                     for ($i = 0; $i < $row; $i++) {
                         ?>
-                        <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['name']; ?></option>
+                        <option value="<?php echo $order_data[$i]['id']; ?>"><?php echo $order_data[$i]['brand']; ?></option>
                         <?php
                     }
                     ?>
@@ -134,21 +134,23 @@ require_once('includes/db-configure.php');
 <script src="assets/vendors/swiper/js/swiper.min.js"></script>
 
 <!-- JQuery JS -->
-<script src="assets/vendors/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 <script>
     function setFoodPrice(value) {
         let date = $('#date').val();
-
+        console.log(date);
+        console.log(value);
         $.ajax({
-            type: 'post',
+            type: 'get',
             url: 'Get-Product-Price-And-Time',
             data: {
                 product_id: value, date: date
             },
             success: function (data) {
+                console.log(data);
                 $('#price').html(data);
             }
         });

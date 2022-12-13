@@ -1,5 +1,5 @@
 <?php
-require_once ('includes/session.php');
+require_once('session.php');
 
 if (isset($_POST["submit"])) {
     $email = $db_handle->checkValue($_POST['email']);

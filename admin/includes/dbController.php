@@ -4,12 +4,12 @@ class DBController {
     private $user = "root";
     private $password = "";
     private $database = "restaurents";
-    private $from_email='official@nftprj.com';
+    private $from_email='official@booking520.com';
     private $notification_email='nftlauncher@gmail.com, ricoleung28@gmail.com';
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="app.nftprj.com"||$_SERVER['SERVER_NAME']=="www.app.nftprj.com"){
+        if($_SERVER['SERVER_NAME']=="booking520.com"||$_SERVER['SERVER_NAME']=="www.booking520.com"){
             $this->host = "localhost";
             $this->user = "u727820269_restaurants";
             $this->password = "2#=Y:b|rfrS";

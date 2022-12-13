@@ -2,8 +2,8 @@
 require_once('admin/includes/dbController.php');
 $db_handle = new DBController();
 
-$product_id = $_POST['product_id'];
-$date = $_POST['date'];
+$product_id = $_GET['product_id'];
+$date = $_GET['date'];
 
 $order_data = $db_handle->runQuery("SELECT * FROM `product` where id='$product_id'");
 
